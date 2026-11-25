@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[[rules]]
+id = "hardcoded-password"
+description = "Detect hardcoded password"
+regex = '''password\s*=\s*["'][^"']+["']'''
+keywords = ["password"]
