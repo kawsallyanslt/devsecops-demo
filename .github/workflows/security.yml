@@ -1,20 +1,18 @@
-name: DevSecOps Demo
 
-# Trigger deployment whenever code is pushed to main
-on:
-  push:
-    branches:
-      - main
+name: Password Leak Detection
+
+on: [push]
 
 jobs:
-  security-scan:
+  security:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Run Secret Scanning
+      - name: Detect Password Leak
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
