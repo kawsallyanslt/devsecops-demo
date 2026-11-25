@@ -1,8 +1,10 @@
 name: DevSecOps Demo
 
+# Trigger deployment whenever code is pushed to main
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   security-scan:
